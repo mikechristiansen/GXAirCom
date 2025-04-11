@@ -1,0 +1,35 @@
+### GXAirCom FANET SYC Commands
+
+All commands must be sent in the format:  
+`CMD:P<your_pin>#SYC <COMMAND>`
+
+Example:  
+`CMD:P1234#SYC VER?`
+
+| **Full Command**                              | **Description**                                              | **Response or Effect**                                      |
+|-----------------------------------------------|--------------------------------------------------------------|-------------------------------------------------------------|
+| `CMD:P1234#SYC VER?`                           | Query firmware version                                       | `#SYC VER=v8.1.0`                                           |
+| `CMD:P1234#SYC NAME?`                          | Query pilot name                                             | `#SYC NAME=<pilot name>`                                    |
+| `CMD:P1234#SYC NAME=<newname>`                 | Set new pilot name                                           | `#SYC OK`                                                   |
+| `CMD:P1234#SYC TYPE?`                          | Query aircraft type                                          | `#SYC TYPE=<0-7>`                                           |
+| `CMD:P1234#SYC TYPE=<x>`                       | Set aircraft type (0–7)                                      | `#SYC OK`                                                   |
+| `CMD:P1234#SYC AIRMODE?`                       | Query air mode                                               | `#SYC AIRMODE=<0 or 1>`                                     |
+| `CMD:P1234#SYC AIRMODE=<x>`                    | Set air mode                                                 | `#SYC OK`                                                   |
+| `CMD:P1234#SYC WIFI=<0/1>`                     | Enable (1) or disable (0) WiFi                               | `#SYC OK`                                                   |
+| `CMD:P1234#SYC Wifi?`                          | Query WiFi configuration (returns JSON)                      | JSON with `ssid`, `password`, mode, etc.                    |
+| `CMD:P1234#SYC WIFI_MODE=<x>`                  | Set WiFi mode                                                | `#SYC OK`, then triggers a restart                          |
+| `CMD:P1234#SYC MODE?`                          | Query operating mode                                         | `#SYC MODE=<0 or 1>`                                        |
+| `CMD:P1234#SYC MODE=<x>`                       | Set operating mode                                           | `#SYC OK`, then restart                                     |
+| `CMD:P1234#SYC OUTMODE?`                       | Query output mode                                            | `#SYC OUTMODE=<0-3>`                                        |
+| `CMD:P1234#SYC OUTMODE=<x>`                    | Set output mode                                              | `#SYC OK`, then restart                                     |
+| `CMD:P1234#SYC FUEL_SENSOR?`                   | Query if fuel sensor is enabled                              | `#SYC FUEL_SENSOR=<0 or 1>`                                 |
+| `CMD:P1234#SYC FUEL_SENSOR=<0/1>`              | Enable or disable fuel sensor                                | `#SYC OK`, then restart                                     |
+| `CMD:P1234#SYC FCPU?`                          | Query CPU frequency                                          | `#SYC FCPU=<MHz>`                                           |
+| `CMD:P1234#SYC FCPU=<x>`                       | Set CPU frequency (20–240 MHz)                               | `#SYC OK`, then restart                                     |
+| `CMD:P1234#SYC RFMODE?`                        | Query RF mode                                                | `#SYC RFMODE=<0-15>`                                        |
+| `CMD:P1234#SYC RFMODE=<x>`                     | Set RF mode (0–15)                                           | `#SYC OK`, then restart                                     |
+| `CMD:P1234#SYC NETSTAT?`                       | Query internet/MQTT/modem status                             | `#SYC INET=1,MODEM=2,MQTT=0`                                |
+| `CMD:P1234#SYC /?`                              | Get help/command list                                        | Returns: `VER`, `NAME`, `TYPE`, `AIRMODE`, etc.             |
+| `CMD:P1234#SYC RESTART`                        | Restart the system                                           | No reply; device restarts                                   |
+| `CMD:P1234#SYC DOUPDATE`                       | Trigger OTA update check                                     | `Check for update`                                          |
+| `CMD:P1234#SYC UPDATE=<version>`               | Set version string and trigger update check                  | `#SYC UPDATE NEW VERSION`                                   |
