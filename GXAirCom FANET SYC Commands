@@ -29,7 +29,13 @@ Example:
 | `CMD:P1234#SYC RFMODE?`                        | Query RF mode                                                | `#SYC RFMODE=<0-15>`                                        |
 | `CMD:P1234#SYC RFMODE=<x>`                     | Set RF mode (0–15)                                           | `#SYC OK`, then restart                                     |
 | `CMD:P1234#SYC NETSTAT?`                       | Query internet/MQTT/modem status                             | `#SYC INET=1,MODEM=2,MQTT=0`                                |
-| `CMD:P1234#SYC /?`                              | Get help/command list                                        | Returns: `VER`, `NAME`, `TYPE`, `AIRMODE`, etc.             |
+| `CMD:P1234#SYC /?`                             | Get help/command list - Not usable over FANET                | Returns: `VER`, `NAME`, `TYPE`, `AIRMODE`, etc.             |
 | `CMD:P1234#SYC RESTART`                        | Restart the system                                           | No reply; device restarts                                   |
 | `CMD:P1234#SYC DOUPDATE`                       | Trigger OTA update check                                     | `Check for update`                                          |
 | `CMD:P1234#SYC UPDATE=<version>`               | Set version string and trigger update check                  | `#SYC UPDATE NEW VERSION`                                   |
+
+
+RF modes  3,   FNT-Tx+Rx
+          7,   FNT-Tx+Rx Flarm-Rx
+          11,  FNT-Tx+Rx Flarm-Tx
+          15,  FNT-Tx+Rx FLARM-Tx+Rx
